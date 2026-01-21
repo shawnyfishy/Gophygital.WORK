@@ -18,8 +18,8 @@
               peach: {
                 bg: '#FDFCF8',      /* Warm Cream Paper */
                 surface: '#FFFFFF',
-                text: '#1C1917',    /* Stone 900 - Darker for better readability */
-                muted: '#57534E',   /* Stone 600 - Darker for better readability */
+                text: '#1C1917',    /* Stone 900 */
+                muted: '#57534E',   /* Stone 600 */
                 accent: '#D97706',  /* Warm Amber/Orange */
                 soft: '#F5F5F4',    /* Stone 100 */
               }
@@ -50,19 +50,17 @@
       body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        background-color: #FDFCF8; /* Warm Light BG */
+        background-color: #FDFCF8;
         color: #1C1917;
         overflow-x: hidden;
       }
 
-      /* No Blur - Transparent Glass for 3D Model Visibility */
       .section-glass {
-        background: rgba(255, 255, 255, 0.6); /* Slightly more opaque for readability */
+        background: rgba(255, 255, 255, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.5);
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
       }
       
-      /* Liquid Glass Navbar */
       .liquid-glass {
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(12px);
@@ -74,7 +72,6 @@
           inset 0 4px 6px rgba(255, 255, 255, 0.6);
       }
 
-      /* Architectural Blueprint Background */
       .bg-blueprint {
         background-size: 40px 40px;
         background-image:
@@ -82,7 +79,6 @@
           linear-gradient(to bottom, rgba(217, 119, 6, 0.05) 1px, transparent 1px);
       }
 
-      /* Smooth Scroll Behavior */
       .smooth-scroll-container {
         scroll-behavior: smooth;
       }
@@ -101,17 +97,20 @@
 {
   "imports": {
     "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
     "react/": "https://esm.sh/react@^19.2.3/",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
     "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
     "three": "https://esm.sh/three@0.161.0",
-    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
 </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
