@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GoPhygital.work | Connected Workplace Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['DM Sans', 'sans-serif'],
+              serif: ['Lora', 'serif'],
+            },
+            colors: {
+              peach: {
+                bg: '#FDFCF8',      /* Warm Cream Paper */
+                surface: '#FFFFFF',
+                text: '#1C1917',    /* Stone 900 - Darker for better readability */
+                muted: '#57534E',   /* Stone 600 - Darker for better readability */
+                accent: '#D97706',  /* Warm Amber/Orange */
+                soft: '#F5F5F4',    /* Stone 100 */
+              }
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'spin-slow': 'spin 20s linear infinite',
+              'shine': 'shine 1.5s ease-out infinite',
+            },
+            keyframes: {
+              shine: {
+                '0%': { transform: 'skew(-12deg) translateX(-100%)' },
+                '100%': { transform: 'skew(-12deg) translateX(100%)' }
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-padding-top: 100px;
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-color: #FDFCF8; /* Warm Light BG */
+        color: #1C1917;
+        overflow-x: hidden;
+      }
+
+      /* No Blur - Transparent Glass for 3D Model Visibility */
+      .section-glass {
+        background: rgba(255, 255, 255, 0.6); /* Slightly more opaque for readability */
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+      }
+      
+      /* Liquid Glass Navbar */
+      .liquid-glass {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow: 
+          0 8px 32px 0 rgba(31, 38, 135, 0.05),
+          inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+          inset 0 4px 6px rgba(255, 255, 255, 0.6);
+      }
+
+      /* Architectural Blueprint Background */
+      .bg-blueprint {
+        background-size: 40px 40px;
+        background-image:
+          linear-gradient(to right, rgba(217, 119, 6, 0.05) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(217, 119, 6, 0.05) 1px, transparent 1px);
+      }
+
+      /* Smooth Scroll Behavior */
+      .smooth-scroll-container {
+        scroll-behavior: smooth;
+      }
+      
+      .glass-panel {
+        background: rgba(255, 255, 255, 0.75);
+        border: 1px solid rgba(255,255,255,0.6);
+      }
+      
+      ::selection {
+        background: rgba(217, 119, 6, 0.2);
+        color: #1C1917;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.27.5",
+    "three": "https://esm.sh/three@0.161.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.12.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
