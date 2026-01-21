@@ -11,40 +11,42 @@ interface RevealProps {
   className?: string;
   variant?: RevealVariant;
   options?: UseInViewOptions;
+  threshold?: number;
 }
 
 export const Reveal: React.FC<RevealProps> = ({ 
   children, 
   width = "fit-content", 
   delay = 0, 
-  duration = 0.8,
+  duration = 0.5,
   className = "",
   variant = 'fade-up',
+  threshold = 0.1,
   options = {} 
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10% 0px -10% 0px", ...options });
+  const isInView = useInView(ref, { once: true, margin: "-10% 0px", amount: threshold, ...options });
 
   const getVariants = (): Variants => {
     switch (variant) {
       case 'scale':
         return {
-          hidden: { opacity: 0, scale: 0.92, filter: "blur(4px)" },
-          visible: { opacity: 1, scale: 1, filter: "blur(0px)" }
+          hidden: { opacity: 0, scale: 0.9 },
+          visible: { opacity: 1, scale: 1 }
         };
       case 'blur':
         return {
-          hidden: { opacity: 0, filter: "blur(12px)", y: 20 },
+          hidden: { opacity: 0, filter: "blur(10px)", y: 20 },
           visible: { opacity: 1, filter: "blur(0px)", y: 0 }
         };
       case 'slide-right':
         return {
-          hidden: { opacity: 0, x: -40 },
+          hidden: { opacity: 0, x: -50 },
           visible: { opacity: 1, x: 0 }
         };
       case 'slide-left':
         return {
-          hidden: { opacity: 0, x: 40 },
+          hidden: { opacity: 0, x: 50 },
           visible: { opacity: 1, x: 0 }
         };
       case 'fade-in':
@@ -55,14 +57,14 @@ export const Reveal: React.FC<RevealProps> = ({
       case 'fade-up':
       default:
         return {
-          hidden: { opacity: 0, y: 40 },
+          hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
         };
     }
   };
 
   return (
-    <div ref={ref} style={{ width }} className={`relative ${className}`}>
+    <div ref={ref} style={{ width, position: 'relative', overflow: 'hidden' }} className={className}>
       <motion.div
         variants={getVariants()}
         initial="hidden"
@@ -70,7 +72,7 @@ export const Reveal: React.FC<RevealProps> = ({
         transition={{ 
           duration, 
           delay, 
-          ease: [0.16, 1, 0.3, 1] // Apple's signature ease-out curve
+          ease: [0.25, 0.1, 0.25, 1.0] 
         }}
       >
         {children}
@@ -81,14 +83,14 @@ export const Reveal: React.FC<RevealProps> = ({
 
 export const TextReveal: React.FC<{ text: string; className?: string; delay?: number }> = ({ text, className = "", delay = 0 }) => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
+    const isInView = useInView(ref, { once: true });
     
     return (
         <span ref={ref} className={`inline-block overflow-hidden ${className}`}>
             <motion.span
-                className="inline-block will-change-transform"
-                initial={{ y: "110%" }}
-                animate={isInView ? { y: 0 } : { y: "110%" }}
+                className="inline-block"
+                initial={{ y: "100%" }}
+                animate={isInView ? { y: 0 } : { y: "100%" }}
                 transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
             >
                 {text}

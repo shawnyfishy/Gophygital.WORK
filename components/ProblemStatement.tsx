@@ -9,7 +9,7 @@ export const ProblemStatement: React.FC = () => {
       <div className="min-h-screen flex items-center justify-center py-24 px-6 section-glass">
         <div className="max-w-[1400px] mx-auto w-full grid lg:grid-cols-2 gap-24 items-center">
             <div className="order-2 lg:order-1 relative group px-6 lg:px-0">
-                <Reveal width="100%" variant="slide-right">
+                <Reveal width="100%" variant="fade-up">
                     <ParallaxImage 
                         src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600" 
                         alt="Chaotic Office" 
@@ -70,7 +70,7 @@ export const ProblemStatement: React.FC = () => {
                 </Reveal>
             </div>
             <div className="order-2 relative group px-6 lg:px-0">
-                <Reveal width="100%" variant="slide-left">
+                <Reveal width="100%" variant="fade-up">
                     <ParallaxImage 
                         src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1600" 
                         alt="Modern Hybrid Office" 
